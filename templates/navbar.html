@@ -1,0 +1,20 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="../">Home</a>
+		</div>
+		{% if request.user.is_anonymous == False %}
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="/share">Share a Recipe</a></li>
+		</ul>
+		{% endif %}
+		<ul class="nav navbar-nav navbar-right">
+			{% if request.user.is_anonymous %}
+				<li><a href="../accounts/login/">Log In</a></li>
+				<li><a href="../register/">Register</a></li>
+			{% else %}
+				<li><a href="../accounts/logout/">({{ request.user|capfirst }}) Log Out</a></li>
+			{% endif %}
+		</ul>
+	</div>
+</nav>

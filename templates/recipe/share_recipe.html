@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_anonymous %}
+	<h1> You must be logged in to share a recipe! </h1>
+	<p> Log in or register now. </p>
+{% else %}
+	<h2>Share a Recipe</h2>
+
+	<form method='POST' enctype="multipart/form-data"> {% csrf_token %}
+		{{ form.as_p }}
+		<input type='submit' value='Save'/><br>
+	</form>
+{% endif %}
+
+{% endblock %}

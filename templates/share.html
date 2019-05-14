@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Share a Recipe</h1>
+<p>Sharing...</p>
+<p>
+{{ user }}
+</p>
+
+<ul>
+	<li>item1</li>
+	<li>item2</li>
+</ul>
+
+<ul>
+{% for item in difficulty %}
+	{% if item == "hard" %}
+		<li>{{ forloop.counter }} - Yo wtf?! It's {{ item|capfirst }}!</li>
+	{% else %}
+		<li>{{ forloop.counter }} - {{ item|capfirst }}</li>
+	{% endif %}
+{% endfor %}
+</ul>
+
+{% endblock %}

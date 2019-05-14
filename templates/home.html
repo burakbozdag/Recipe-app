@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for recipe in object_list %}
+	<div class="borders" style="border:5px border-style:inset">
+		<a href="{{ recipe.id }}/"><h2>{{ recipe.title }}</h2></a>
+		<img class="images" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+		<p>{{ recipe.description }}</p>
+	</div>
+	<br>
+{% endfor %}
+
+{% endblock %}
